@@ -117,21 +117,25 @@ In finance and security, this helps prevent fraud and preempt potential breaches
 
 ### 2. Pinecone
 <img width="711" height="272" alt="image" src="https://github.com/user-attachments/assets/a466570f-6a65-4361-a1bb-7a781d681b2e" />
+
 - Pinecone is a managed vector database
 - Cutting-edge indexing and search capabilities
 
 ### 3. Weaviate
 <img width="709" height="384" alt="image" src="https://github.com/user-attachments/assets/3c78d7cc-9c05-4460-8d4c-2ca7cac03ad7" />
+
 - Weaviate is an open-source vector database
 - Offers recommendations, summarizations, and neural search framework integrations.
 
 ### 4. Faiss
 <img width="704" height="397" alt="image" src="https://github.com/user-attachments/assets/cce25a37-faaa-4685-b454-4e8c736dcab5" />
+
 - Faiss is an open-source library for the search of similarities and the clustering of dense vectors.
 - While it's primarily coded in C++, it fully supports Python/NumPy integration. 
 
 ### 5. Qdrant
 <img width="707" height="671" alt="image" src="https://github.com/user-attachments/assets/8a98c7c1-6b57-4b22-b806-8ededd409925" />
+
 - Qdrant is a vector database and a tool for conducting vector similarity searches.
 - It operates as an API service, enabling searches for the closest high-dimensional vectors.
 - You can transform embeddings or neural network encoders into comprehensive applications for tasks like matching, searching, and making recommendations.
