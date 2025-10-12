@@ -144,9 +144,42 @@ In finance and security, this helps prevent fraud and preempt potential breaches
 - Built-in Rust, optimizing resource use with dynamic query planning.
 
 
+---
 
+## How RAG works and What is the role of Vector DB?
+### Real-Time Interaction of user
 
+- Note: Feed your context, resource, and data etc. into your vector db with perfect formatting of text, metadata, and ids.
 
+How Flow works
+#### Step 1: User Input 
+- The user types a question
+  
+#### Step 2: Query Embedding
+- The user's new query is immediately sent to the same Embedding Model
+- This model converts the user's text query into a vector embedding.
+
+#### Step 3: Context Retrieval (The "R" in RAG)
+- The query's vector embedding is sent to the Vector Database.
+- The database performs a Vector Similarity Search to find the top K (e.g., 5-10) most relevant text chunks from your proprietary data.
+- It does this by identifying which stored vectors are numerically closest to the user's query vector.
+- The system also retrieves relevant information from the current Conversation History (short-term memory).
+
+#### Step 4: Prompt Augmentation (The "A" in RAG)
+- A Prompt Orchestrator takes the original **user query**, the **conversation history**, and the newly **retrieved relevant data chunks**, and combines them all into one detailed Contextual Prompt.
+- **Example**: The resulting prompt looks something like: 
+``` Javascript
+"Here is the user's current question: **[User Query]**. 
+Here is the conversation history: **[History]**. 
+Answer the user's question only using the following context: **[Retrieved Data Chunks]**."
+```
+
+#### Step 5: Response Generation (The "G" in RAG)
+- The complete Contextual Prompt is sent to the Large Language Model (LLM) (eg: ChatGPT, Gemini, Claude or a fine-tuned model etc.).
+- The LLM reads the entire prompt—paying special attention to the retrieved data chunks—and generates a final, context-aware answer that directly addresses the user's query using only the provided proprietary information.
+
+#### Step 6: Final Output
+- The LLM's final response is sent back to the Chatbot Interface.
 
 
 
