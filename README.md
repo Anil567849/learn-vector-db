@@ -101,6 +101,7 @@ In finance and security, this helps prevent fraud and preempt potential breaches
 
 ### 1. Chroma
 <img width="699" height="370" alt="image" src="https://github.com/user-attachments/assets/d095f5f5-a7df-4974-a395-66eb30826c1d" />
+
 - Chroma is an open-source vector store
 - Its main use is to save embeddings along with metadata
 - Chroma makes it easy to build LLM apps by making knowledge, facts, and skills pluggable
