@@ -11,6 +11,9 @@ cd src/docker
 docker-compose up
 ```
 
-3. Done ✅
+3. Use this app
+``` bash
+http://localhost:3000
+```
 
 ---
