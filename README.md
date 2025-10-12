@@ -147,9 +147,41 @@ In finance and security, this helps prevent fraud and preempt potential breaches
 ---
 
 ## How RAG works and What is the role of Vector DB?
-### Real-Time Interaction of user
+### Let's Take Example of Real-Time Interaction of User
 
 - Note: Feed your context, resource, and data etc. into your vector db with perfect formatting of text, metadata, and ids.
+``` Javascript
+const student_info = `
+Alexandra Thompson, a 19-year-old computer science sophomore with a 3.7 GPA,
+is a member of the programming and chess clubs who enjoys pizza, swimming, and hiking
+in her free time in hopes of working at a tech company after graduating from the University of Washington.
+`
+
+const club_info = `
+The university chess club provides an outlet for students to come together and enjoy playing
+the classic strategy game of chess. Members of all skill levels are welcome, from beginners learning
+the rules to experienced tournament players. The club typically meets a few times per week to play casual games,
+participate in tournaments, analyze famous chess matches, and improve members' skills.
+`
+
+const university_info = `
+The University of Washington, founded in 1861 in Seattle, is a public research university
+with over 45,000 students across three campuses in Seattle, Tacoma, and Bothell.
+As the flagship institution of the six public universities in Washington state,
+UW encompasses over 500 buildings and 20 million square feet of space,
+including one of the largest library systems in the world.
+`
+
+const documents = [student_info, club_info, university_info];
+const metadatas = [{"source": "student info"}, {"source": "club info"}, {'source': 'university info'}];
+const ids = ["id1", "id2", "id3"];
+
+await your_vector_db.add({
+  documents: documents,
+  metadatas: metadatas,
+  ids: ids
+});
+```
 
 How Flow works
 #### Step 1: User Input 
@@ -169,9 +201,9 @@ How Flow works
 - A Prompt Orchestrator takes the original **user query**, the **conversation history**, and the newly **retrieved relevant data chunks**, and combines them all into one detailed Contextual Prompt.
 - **Example**: The resulting prompt looks something like: 
 ``` Javascript
-"Here is the user's current question: **[User Query]**. 
-Here is the conversation history: **[History]**. 
-Answer the user's question only using the following context: **[Retrieved Data Chunks]**."
+`Here is the user's current question: [User Query]. 
+Here is the conversation history: [History]. 
+Answer the user's question only using the following context: [Retrieved Data Chunks].`
 ```
 
 #### Step 5: Response Generation (The "G" in RAG)
