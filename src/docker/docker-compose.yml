@@ -1,0 +1,17 @@
+services:
+  chroma:
+    image: ghcr.io/chroma-core/chroma:latest
+    container_name: chroma
+    ports:
+      - "8000:8000"           # Chroma API port
+    volumes:
+      - chroma_data:/data     # <-- persist data here
+    environment:
+      - CHROMA_SERVER_HOST=0.0.0.0
+      - CHROMA_SERVER_HTTP_PORT=8000
+      - ALLOW_RESET=true      # allows /reset endpoint
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
+    driver: local

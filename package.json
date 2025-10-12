@@ -10,9 +10,12 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@chroma-core/default-embed": "^0.1.8",
+    "chroma": "^0.0.1",
+    "chromadb": "^3.0.17",
+    "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
     "typescript": "^5",
