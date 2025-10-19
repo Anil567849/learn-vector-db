@@ -273,7 +273,7 @@ How to implement: using graph
 
 - List this you can add multiple dimensions: {action, comedy, thrill, emotional, romance, so on..} <- this is vector
 - ### To create a vector you can use embedding models -> they are train on neural networks -> You put word, image, audio and video - you get vector
-- <img width="765" height="682" alt="image" src="https://github.com/user-attachments/assets/a39c592f-8ac6-47ab-84ef-8c7b38cd1b8e" />
+<img width="400" height="400" alt="image" src="https://github.com/user-attachments/assets/a39c592f-8ac6-47ab-84ef-8c7b38cd1b8e" />
 
 ``` bash
 famous question:
@@ -412,7 +412,7 @@ So we use Compress
 - We know there are 0 to 255 values
 - We compress pink to single number - say 42 is mathing with pink.
 - You loose some depth of color but your memory reduced from (3bytes x 3values) to (1value x 1byte)
-- 
+
 <img width="550" height="742" alt="image" src="https://github.com/user-attachments/assets/56f88cef-8e6e-4bf8-b5ca-a0cb3ab6c653" />
 
 What is codebook:
