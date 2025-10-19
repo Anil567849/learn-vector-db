@@ -217,10 +217,11 @@ Answer the user's question only using the following context: [Retrieved Data Chu
 ---
 ---
 
-## Deep dive intro internals
-### How does recommendation or similar suggestion engine works behind?
+## Deep dive into internals
+### How does recommendation or similar suggestion engine works?
 
 Let's learn it from the first principle
+---
 ### 1. First Solution (Brute Force):
 - We will create an array and store similar items in single array.
 - In this way we can maintain thousand of different array for similar product that we want to suggest with each other.
@@ -231,6 +232,8 @@ Let's learn it from the first principle
 - Time Complexity: In large database where millions of product exist: you have to find right array and put new product there.
 - Duplication issue. What if you want to suggest same with other that exist in different mulitple array.
 - Complex Mathing: Two product may not be similar for recommendation but makes sense eg: Family: rice + toffee.
+
+---
 
 ### 2. Graph Based Solution:
 - We will create a graph and make each to all other nodes that is similar or can be recommended with this product.
@@ -248,6 +251,7 @@ How to implement: using graph
 - Cold start: when started you have no purchasing data - your system will not work.
 - Same product different brand - you may have data of only one brand it will not work for other.
 
+---
 
 ### 3. Assign a number to each item and show closes as a recommendation
 - fruits: 1 to 100 = 1 is apple, 2 is banana etc..
@@ -259,6 +263,7 @@ How to implement: using graph
 - if items are very far: 99 is far from 2
 - if new fruit needed to be add - there is no space
 
+---
 
 ### 4. Vectors
 - Suppose you want to recommend a moving. You have two dimensions: action, comedy
@@ -286,6 +291,7 @@ When we remove king - man all similar aspect - we left with [ruler, money, so on
 [ruler, money, etc..] + "women" == queen
 ```
 
+---
 
 ### How to measure closeness between vectors
 
@@ -302,28 +308,28 @@ Think of it like measuring how far two dots are on paper.
 #### 2. Cosine Distance (like an angle)
 Measures the angle between two vectors, not how long they are.
 It checks how similar their directions are.
+``` javascript
 Example:
 - vector A = [1, 0]
 - vector B = [2, 0] → same direction → cosine similarity = 1 (very close)
 - vector C = [0, 1] → 90° apart → cosine similarity = 0 (not close)
+```
 
 Used in LLMs because meaning depends on direction (context), not vector length.
 
-
 Note: Cosine Distance is widely used and much better
 
-
-
 ---
 ---
 
-## All about vector data base algorithms
-## Why not OLTP or OLAP databases.
+## All about vector database algorithms
+
+### Why not OLTP or OLAP databases.
 - Sql or NoSql database are build for exact searches.
 - It is not designed to find symantic seaches or store multiple dimensions.
 
-## How to find nearest values in Vector Database?
-### 1. ENN (Exact Nearest Neighbour)
+### How to find nearest values in Vector Database?
+#### 1. Exact Nearest Neighbour (ENN)
 - I have lots of items with embedding (vector)
 <img width="382" height="236" alt="image" src="https://github.com/user-attachments/assets/5480fa00-c779-42f4-8f01-a5709293caf2" />
 
@@ -332,11 +338,13 @@ If i need to find similar items as onion
 - This works Exactly but it is slow -
 - This is called a **Exact Nearest Neighbour**
 
-### 2. ANN (Approximate Nearest Neighbour)
+---
+
+### 2. Approximate Nearest Neighbour (ANN)
 - It find closest values very fast but tiny amount of data may be incorrect
 - if 8 out of 10 is correct but algorithm is fast then it is fine.
 
-#### Here are 4 type of ANN algos
+#### Here are 4 type of ANN algorightms
 #### 1. (IVF) Clustering/Inverted File Index
 - There are multiple cluster
 - Step 1: find each cluster centroid
@@ -349,6 +357,8 @@ If i need to find similar items as onion
 Note: 
 - Cluster X edge maybe closer than Cluster y centroid - but you only find centroid first.
 - To make answer more find: you can pick 2-3 centroid in each cluser.
+
+---
 
 #### 2. Decision Tree Method (Binary Space Partitioning)
 - It works similar to binary search -> eg: if value is big than find in right side, left side will never have answer
@@ -369,8 +379,9 @@ Cons:
 - if you backtrack it will increase time complexity
 - this is not very reliable method: spotify was using it, but moved to another.
 
+---
 
-### (HNSW) Heirarchical Nevigable Small Worlds
+#### 3. Heirarchical Nevigable Small Worlds (HNSW)
 - You consider every vector as a node
 - make x nearest neighbour connection in layer 0
 - promote some nodes to layer 1
@@ -383,12 +394,12 @@ Searching:
 - move down layer and find all connected nodes to that and find nearest
 - move more down to that connected node and pick some values - this nodes always be closer to what you are finding
 
-
 NOTE: 
 - Distribute values evenly - so nodes are connected widely
 
+---
 
-### The Compression Method: (Product Quantization - PQ):
+#### 4. The Compression Method: (Product Quantization - PQ):
 - If a vector has 1536 dimension
 - Each is number 32 bit or 4 bytes
 - 1536 x 4 bytes - 6144
@@ -396,13 +407,13 @@ NOTE:
 - If you process all - Costly
 - If you process chunk by chunk - Slow
 
-  So we use Compress
-  - Example: RGB color pink: (255,192,203)
-  - We know there are 0 to 255 values
-  - We compress pink to single number - say 42 is mathing with pink.
-  - You loose some depth of color but your memory reduced from (3bytes x 3values) to (1value x 1byte)
-  - 
-  <img width="550" height="742" alt="image" src="https://github.com/user-attachments/assets/56f88cef-8e6e-4bf8-b5ca-a0cb3ab6c653" />
+So we use Compress
+- Example: RGB color pink: (255,192,203)
+- We know there are 0 to 255 values
+- We compress pink to single number - say 42 is mathing with pink.
+- You loose some depth of color but your memory reduced from (3bytes x 3values) to (1value x 1byte)
+- 
+<img width="550" height="742" alt="image" src="https://github.com/user-attachments/assets/56f88cef-8e6e-4bf8-b5ca-a0cb3ab6c653" />
 
 What is codebook:
 - Training: Look at millions of vectors, find 256 common patterns
@@ -410,6 +421,7 @@ What is codebook:
 - Compression: For any new vector, find which of the 256 patterns is closest
 - Storage: Store just the number (0-255) instead of the full vector
 
+---
 
 ### Which method is best
 <img width="710" height="225" alt="image" src="https://github.com/user-attachments/assets/df0e0885-7d55-4d4d-b0fe-5c69a6a34c4b" />
