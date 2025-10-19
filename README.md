@@ -239,9 +239,9 @@ Let's learn it from the first principle
 - We will create a graph and make each to all other nodes that is similar or can be recommended with this product.
 - As people buy similar products you increase the weights of the edges.
   
-<img width="854" height="560" alt="image" src="https://github.com/user-attachments/assets/29420a15-fd66-4980-be4d-9e15cc632320" />
-</br>
-<img width="612" height="387" alt="image" src="https://github.com/user-attachments/assets/ddf90892-5fe3-4d10-8e1e-f4cb8d9a6dd3" />
+| <img width="854" height="560" alt="image" src="https://github.com/user-attachments/assets/29420a15-fd66-4980-be4d-9e15cc632320" /> | <img width="612" height="387" alt="image" src="https://github.com/user-attachments/assets/ddf90892-5fe3-4d10-8e1e-f4cb8d9a6dd3" /> |
+|:--:|:--:|
+
 
 How to implement: using graph
 <img width="796" height="620" alt="image" src="https://github.com/user-attachments/assets/dad5d250-b3e3-4632-bb82-d9ddc5675d4d" />
