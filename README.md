@@ -1,12 +1,19 @@
+# What is this app
+- You can add some of your document - it converts to embeddings and stores into the chroma vector database
+- You can then search anything to get symantic data from that document.
+<img width="671" height="405" alt="image" src="https://github.com/user-attachments/assets/9aeacbc0-d523-4aa8-bd1d-78b82d4bcebf" />
+
+---
+
 # How to use this app
 
-1. Run the app
+1. Run the app - frontend to visullay see the app
 - use this cmd in the root folder
 ``` bash
 bun run dev
 ```
 
-2. Run the docker
+2. Run the docker - to start chroma db on local and persist data
 - create new terminal
 - make sure your docker engine is up and running
 ``` bash
