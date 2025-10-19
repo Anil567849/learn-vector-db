@@ -242,7 +242,6 @@ Let's learn it from the first principle
 | <img width="854" height="560" alt="image" src="https://github.com/user-attachments/assets/29420a15-fd66-4980-be4d-9e15cc632320" /> | <img width="612" height="387" alt="image" src="https://github.com/user-attachments/assets/ddf90892-5fe3-4d10-8e1e-f4cb8d9a6dd3" /> |
 |:--:|:--:|
 
-
 How to implement: using graph
 <img width="796" height="620" alt="image" src="https://github.com/user-attachments/assets/dad5d250-b3e3-4632-bb82-d9ddc5675d4d" />
 
@@ -273,7 +272,7 @@ How to implement: using graph
 <img width="984" height="683" alt="image" src="https://github.com/user-attachments/assets/02ff56f4-1b34-4cec-88d1-a53d8d87eca0" />
 
 - List this you can add multiple dimensions: {action, comedy, thrill, emotional, romance, so on..} <- this is vector
-- To create a vector you can use embedding models -> they are train on neural networks -> You put word, image, audio and video - you get vector
+- ### To create a vector you can use embedding models -> they are train on neural networks -> You put word, image, audio and video - you get vector
 - <img width="765" height="682" alt="image" src="https://github.com/user-attachments/assets/a39c592f-8ac6-47ab-84ef-8c7b38cd1b8e" />
 
 ``` bash
