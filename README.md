@@ -352,7 +352,7 @@ If i need to find similar items as onion
 - Step 3: choose that cluster whose centroid is closer to your value -> means: that cluster all values will be nearest to you value.
 - Step 4: now you can find some times in that cluster which is more closer to your value and pick some.
 
-<img width="688" height="563" alt="image" src="https://github.com/user-attachments/assets/d520f4e8-b989-436f-b40e-d99e043a96f4" />
+<img width="400" height="383" alt="image" src="https://github.com/user-attachments/assets/14b99b5c-19ae-4446-9615-ae913dc09ccf" />
 
 Note: 
 - Cluster X edge maybe closer than Cluster y centroid - but you only find centroid first.
@@ -362,16 +362,18 @@ Note:
 
 #### 2. Decision Tree Method (Binary Space Partitioning)
 - It works similar to binary search -> eg: if value is big than find in right side, left side will never have answer
-<img width="640" height="462" alt="image" src="https://github.com/user-attachments/assets/64a0dc49-3e78-4263-8159-445c2d6e511d" />
+<img width="521" height="332" alt="image" src="https://github.com/user-attachments/assets/c6f4508e-a610-412f-bdcd-95e6d4bf1433" />
 
 How it works
 - Step 1: Your sort you vector:
+
 <img width="1135" height="216" alt="image" src="https://github.com/user-attachments/assets/d182af23-f4cd-4730-8c9a-7b95f509e839" />
 
 - Step 2: Build Tree using that:
 - First Cut in X axis
 - Second Cut in Y axis so on..
-<img width="677" height="547" alt="image" src="https://github.com/user-attachments/assets/d78b9cfe-2c37-4b01-8e13-4935908e6f0a" />
+
+<img width="766" height="343" alt="image" src="https://github.com/user-attachments/assets/4dd88ce3-1707-4077-a9a7-3ed4f9043a9d" />
 
 - Now if i want to find some value i can just use binary approach
 Cons:
