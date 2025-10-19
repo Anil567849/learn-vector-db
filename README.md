@@ -1,6 +1,7 @@
 # What is this app
 - You can add some of your document - it converts to embeddings and stores into the chroma vector database
 - You can then search anything to get symantic data from that document.
+- NOTE: for the learning purpose i am using chroma db
 <img width="671" height="405" alt="image" src="https://github.com/user-attachments/assets/9aeacbc0-d523-4aa8-bd1d-78b82d4bcebf" />
 
 ---
